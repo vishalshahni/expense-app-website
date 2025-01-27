@@ -1,0 +1,81 @@
+body,html{
+    margin: 0;
+    padding: 0;
+    background-image: url('./02b08257-6229-4ce5-b1a7-8f5a35ed0178.JPG');
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+}
+
+.red{
+    color: rgb(222, 10, 10);
+}
+
+main {
+    display: flex; 
+    justify-content: space-between; 
+    align-items: center; 
+    padding: 70px 10px; 
+    padding-bottom: 170px;
+}
+
+
+
+#sec-1, #sec-2 {
+    flex: 1;
+    padding: 20px; 
+}
+
+#sec-1 {
+    color: white;
+    text-align: left; 
+}
+#sec-1 p{
+    color: gray;
+}
+
+#sec-2 img {
+    width: 80%; 
+    height: auto;
+    box-shadow: 1px 5px 20px rgb(42, 40, 40);
+}
+hr{
+    height: 2vh;
+    background-color: white;
+}
+
+#login-btn{
+    background-color: rgb(12, 12, 190);
+    padding: 10px 30px;
+    border: none;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    cursor: pointer;
+}
+#signup-btn{
+    background-color: transparent;
+    padding: 10px 30px;
+    border: 1px solid gray;
+    color: white;
+    font-size: 1.1rem;
+    border-radius: 5px;
+    margin-top: 10px;
+    margin-left: 8px;
+    cursor: pointer;
+}
+
+
+footer{
+    display: flex;
+    color: gray;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+    height: 10vh;
+}
+footer p{
+    padding-left: 40px;
+}
+
+
+
+

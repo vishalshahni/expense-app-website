@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Expense</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/expense.css">
+</head>
+<body>
+    <header id="navHead">
+        <nav id="navBar">
+            <div id="hamburger"  class="hamburger"onclick="toggleMenu()">
+                &#9776; <!-- Hamburger Icon -->
+            </div>
+            <ul id="home-pricing">
+                <li><a class="active" href="/add-expense">Home</a></li>
+                <li><a href="/support">Support</a></li>
+            </ul>
+        <ul id="login-items">
+            <li><a href="/login">Login</a></li>
+            <li><a href="/signup">Sign up</a></li>
+        </ul>
+        </nav>
+    </header>
+    <main>
+        <div class="expense-add-tab">
+        <form action="" method="post" >
+            <label for="expense">Expense:</label>
+            <input type="text" name="expense" id="expense" required>
+            <label for="description">Description:</label>
+            <input type="text" name="description" id="description" required>
+            <label for="category">Category:</label>
+            <select name="category" id="category">
+                <option value="" disabled selected>Select your category</option>
+                <option value="food">Food</option>
+                <option value="fuel">Fuel</option>
+                <option value="rent">Rent</option>
+                <option value="miscellaneous">Miscellaneous</option>
+            </select>
+            <button type="submit">Add Expense</button>
+            </form>
+        </div>
+    </main>
+    <div id="page-size-container">
+        <label for="page-size">Select Page Size:</label>
+        <select id="page-size">
+            <option value="4">4</option>
+            <option value="8">8</option>
+            <option value="12">12</option>
+            <option value="16">16</option>
+        </select>
+    </div>
+    <hr>
+    <h1>Expenses</h1>
+    <ul id="listOfExpense" class="expense-list">
+        <li class="expense-list-header">
+            <div>Date</div>
+            <div>Amount</div>
+            <div>Description</div>
+            <div>Category</div>
+        </li>
+    </ul>
+    <div id="pagination-controls">
+        <button id="prev-page" disabled>Previous</button>
+        <span id="current-page">Page: 1</span>
+        <button id="next-page">Next</button>
+    </div>
+
+    <footer>
+        <hr>
+        <div>
+            <p>Your own expense tracker - 2025</p>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+        const hamburger = document.getElementById('hamburger');
+        const navBar = document.querySelector('#navBar ul');
+        hamburger.classList.toggle('active');
+        navBar.classList.toggle('active');
+    }
+    </script>
+</body>
+</html>

@@ -1,0 +1,130 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    background-image: url('./02b08257-6229-4ce5-b1a7-8f5a35ed0178.JPG');
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box; /* Ensures consistent box-sizing */
+}
+
+#navHead #navBar {
+    padding: 0;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 10vh;
+    box-shadow: 1px 5px 60px rgb(227, 21, 21);
+    background-color: white;
+    position: sticky; /* Keeps navbar at the top on scroll */
+    top: 0;
+    z-index: 1000; /* Ensures it stays above other content */
+}
+
+#navBar ul {
+    display: flex;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    list-style: none; /* Removes bullet points */
+    transition: max-height 0.3s ease; /* Smooth dropdown effect */
+}
+
+#navBar ul li {
+    list-style: none;
+}
+
+#navBar a {
+    text-decoration: none;
+    padding: 0 15px;
+    color: gray;
+    font-size: 1.3rem;
+    transition: color 0.3s ease; /* Adds smooth hover effect */
+}
+
+#navBar a:hover {
+    color: black; /* Changes color on hover */
+}
+
+#navBar #home-pricing {
+    flex-grow: 1; /* Pushes items to the right */
+    justify-content: flex-end;
+}
+
+#login-items {
+    justify-content: flex-end;
+}
+
+#navBar .active {
+    text-decoration: underline;
+    color: black;
+}
+
+/* Hamburger Menu */
+.hamburger {
+    display: none; /* Hidden by default */
+    flex-direction: column;
+    justify-content: space-around;
+    width: 30px;
+    height: 25px;
+    cursor: pointer;
+}
+
+.hamburger div {
+    width: 30px;
+    height: 3px;
+    background-color: gray;
+    transition: transform 0.3s ease;
+}
+
+/* Active hamburger */
+.hamburger.active div:nth-child(1) {
+    transform: translateY(10px) rotate(45deg);
+}
+
+.hamburger.active div:nth-child(2) {
+    opacity: 0;
+}
+
+.hamburger.active div:nth-child(3) {
+    transform: translateY(-10px) rotate(-45deg);
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex; /* Show hamburger menu on small screens */
+    }
+
+    #navBar ul {
+        flex-direction: column; /* Stack menu items */
+        width: 100%;
+        max-height: 0; /* Initially hidden */
+        overflow: hidden;
+        text-align: center;
+        background-color: white;
+    }
+
+    #navBar ul.active {
+        max-height: 300px; /* Adjust to fit the number of menu items */
+    }
+
+    #navBar a {
+        padding: 10px; /* Increase padding for touch devices */
+        font-size: 1.1rem; /* Reduce font size slightly */
+    }
+}
+
+/* For very small screens (mobile devices) */
+@media (max-width: 480px) {
+    #navBar {
+        box-shadow: none; /* Remove box shadow for minimalistic look */
+    }
+
+    #navBar a {
+        font-size: 1rem; /* Smaller font size */
+    }
+
+    #navBar ul {
+        padding: 0; /* Adjust padding for compact design */
+    }
+}

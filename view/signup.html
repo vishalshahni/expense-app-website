@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sign up now</title>
+    <link rel="stylesheet" href="/css/nav.css">
+    <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+    <header id="navHead">
+        <nav id="navBar">
+            <ul id="home-pricing">
+                <li><a href="/add-expense">Home</a></li>
+
+                <li><a href="/support">Support</a></li>
+            </ul>
+        <ul id="login-items">
+            <li><a href="/login">Login</a></li>
+            <li><a class="active" href="/signup">Sign up</a></li>
+        </ul>
+        </nav>
+    </header>
+        <main>
+            <form action="" method="post" onsubmit="login(event)">
+                <h2>Sign up</h2>
+                <label for="name">Name</label>
+                <input type="text" name="name" id="name" required>
+                <label for="email">Enter your email</label>
+                <input type="email" name="email" id="email" required>
+                <label for="number">Phone no</label>
+                <input type="tel" name="number" id="number" required>
+                <label for="password">Password</label>
+                <input type="password" name="password" id="password" required>
+                <button type="submit">Sign up</button>
+                <p id="success"></p>
+                <p>If you are already a user, <a href="/login">click here to login</a></p>
+
+            </form>
+        </main>
+    </header> 
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <script>
+       
+
+        function login(event){
+        event.preventDefault();
+        const name = document.querySelector('#name').value;
+        const email = document.querySelector('#email').value;
+        const phone = document.querySelector('#number').value;
+        const password = document.querySelector('#password').value;
+            const successfullyRegistered = document.querySelector('#success');
+            if (!name || !email || !phone || !password) {
+            successfullyRegistered.innerText = 'All fields are required';
+            successfullyRegistered.style.color = 'red';
+            return; 
+        }
+            axios.post('http://127.0.0.1:8000/api/register',{name,phone,email,password})
+            .then((response)=>{
+                if(response.data.success){
+                    successfullyRegistered.innerText = 'Registration Successful'
+                    successfullyRegistered.style.color = 'green';
+                    window.location.href = '/login';
+                }else{
+                    successfullyRegistered.innerText = 'This email is already registered, please log in';
+                    successfullyRegistered.style.color = 'red';
+
+                }
+            })
+            .catch(err=>{
+                successfullyRegistered.innerText = 'Error registering user, please try again later'
+                successfullyRegistered.style.color = 'red';
+            })
+        }
+
+    </script>
+</body>
+</html>

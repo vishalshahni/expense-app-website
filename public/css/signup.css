@@ -1,0 +1,55 @@
+
+main{
+    display: flex;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    justify-content: center;
+    
+}
+main form{
+    margin: 150px 0px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 60vh;
+    background-color: rgb(22, 21, 21);
+    width: 50vh;
+    padding: 50px 40px;
+    border-radius: 20px;
+    box-shadow: 10px 10px 10px rgb(26, 26, 26);
+}
+main form h2{
+    align-self: center;
+    color: white;
+}
+main form a{
+    align-self: center;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+main form p{
+    align-self: center;
+    color: white;
+}
+label{
+    margin: 6px 0px;
+    font-size: 1.3rem;
+    color: white;
+   
+}
+input{
+    padding: 12px 5px;
+    border-radius: 5px;
+    border: none;
+}
+button{
+    margin: 20px 0;
+    padding: 8px 8px;
+    border-radius: 5px;
+    border: none;
+    cursor: pointer;
+    background-color: rgb(92, 89, 87);
+    color: white;
+}
