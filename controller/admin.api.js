@@ -5,6 +5,12 @@ exports.registerUser = async (req, res) => {
     const {name,phone, email, password } = req.body;
 
     try {
+        const existingUser = await user.findOne({where:{email:email}});
+
+        if(existingUser){
+            return res.status(200).json({success:false,message:'already have a account'});
+        }
+
         const hashedPassword = await bcrypt.hash(password, 10);
 
         await user.create({
@@ -13,11 +19,7 @@ exports.registerUser = async (req, res) => {
             email: email,
             password: hashedPassword,
         });
-        const existingUser = await user.findOne({where:{email:email}});
-
-        if(existingUser){
-            return res.status(200).json({success:false,message:'already have a account'});
-        }
+       
         res.status(200).json({success:true,message:'registration successful'})
     } catch (err) {
         console.error(err);
@@ -31,11 +33,11 @@ exports.getUser = async (req,res)=>{
     try{
         const existingUser = await user.findOne({where:{email:email}});
         if(!existingUser){
-          return  res.status.json({success:false,message:'Invalid email or password'});
+          return res.json({isValidUser:false,message:'user not found'});
         }
         const isPassword = await bcrypt.compare(password,existingUser.password);
         if(!isPassword){
-           return  res.status.json({success:false,message:'Invalid email or password'});
+           return  res.json({password:false,message:'Invalid password'});
         }
         return res.status(200).json({success:true,message:'logged in success'});
     }

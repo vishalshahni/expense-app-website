@@ -26,7 +26,7 @@
             <label for="email">Enter your email</label>
             <input type="email" name="email" id="email" required>
             <label for="password">Password</label>
-            <input type="text" name="password" id="password" required>
+            <input type="password" name="password" id="password" required>
             <button type="submit">Login</button>
             <p id="logged"></p>
             <p>If you are not a user, <a href="/signup">click here to signup</a></p>
@@ -51,8 +51,14 @@
                 loggedPara.style.color = 'green';
                 window.location.href = '/add-expense';
                 }
+                if(response.data.isValidUser == undefined){
+                    if(!response.data.password){
+                    loggedPara.innerText = 'Invalid password';
+                    loggedPara.style.color = 'red';
+                    }
+                }
                 else{
-                    loggedPara.innerText = 'Invalid Email or Password';
+                    loggedPara.innerText = 'User not found';
                     loggedPara.style.color = 'red';
                 }
             })
